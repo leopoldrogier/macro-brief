@@ -5,6 +5,9 @@ on:
     - cron: "0 5 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   send-brief:
     runs-on: ubuntu-latest
@@ -23,3 +26,11 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python macro_brief.py
+
+      - name: Commit news file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add news/
+          git diff --staged --quiet || git commit -m "news brief $(date -d yesterday +%Y-%m-%d)"
+          git push
