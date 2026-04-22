@@ -142,10 +142,21 @@ def send_email(subject: str, text: str, html: str) -> None:
     print(f"✅ Brief envoyé à {RECIPIENT}")
 
 
+def save_to_file(date_str: str, brief_text: str) -> None:
+    """Sauvegarde le brief dans news/YYYY-MM-DD.md"""
+    news_dir = os.path.join(os.path.dirname(__file__), "news")
+    os.makedirs(news_dir, exist_ok=True)
+    filepath = os.path.join(news_dir, f"{date_str}.md")
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(brief_text)
+    print(f"💾 Sauvegardé dans {filepath}")
+
+
 def main() -> None:
     yesterday = datetime.now() - timedelta(days=1)
     date_search = yesterday.strftime("%B %d %Y")
     date_label = yesterday.strftime("%A %d %B %Y")
+    date_file = yesterday.strftime("%Y-%m-%d")
     subject = f"📰 Macro Brief — {date_label}"
 
     print(f"📡 Recherche des actualités du {date_label}…")
@@ -156,6 +167,9 @@ def main() -> None:
 
     print("📧 Envoi…")
     send_email(subject, brief_text, brief_to_html(brief_text))
+
+    print("💾 Sauvegarde…")
+    save_to_file(date_file, brief_text)
 
 
 if __name__ == "__main__":
