@@ -179,5 +179,15 @@
   "ring-fencing",
   "drawdown",
   "deferred tax",
-  "undervalued asset"
+  "undervalued asset",
+  "rollback",
+  "sandbox",
+  "latency",
+  "middleware",
+  "version control",
+  "cold start",
+  "end-of-life (EOL)",
+  "incident response",
+  "throttling",
+  "containerisation"
 ]
