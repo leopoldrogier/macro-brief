@@ -409,5 +409,15 @@
   "retrofit",
   "proof load",
   "mean time between failures (MTBF)",
-  "design freeze"
+  "design freeze",
+  "specification",
+  "tolerance stack-up",
+  "fatigue failure",
+  "commissioning",
+  "heat treatment",
+  "quality gate",
+  "corrective action",
+  "finite element analysis (FEA)",
+  "planned maintenance",
+  "production ramp-up"
 ]
