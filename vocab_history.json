@@ -459,5 +459,15 @@
   "good faith",
   "leverage",
   "non-disclosure",
-  "rapport building"
+  "rapport building",
+  "middleware",
+  "latency",
+  "sandboxing",
+  "payload",
+  "rollback",
+  "load balancing",
+  "deprecation",
+  "containerisation",
+  "rate limiting",
+  "technical debt"
 ]
